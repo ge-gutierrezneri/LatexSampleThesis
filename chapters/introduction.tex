@@ -1,0 +1,100 @@
+% !TEX root = ../main.tex
+
+On the paper by \citet{bos2015novel} Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\begin{figure}[H] % H  means 'FORCE HERE'. other options: h, t, p. 
+    \centering
+    \includegraphics[height=0.3\linewidth]{images/Profile.png}
+    \caption{Sample figure}
+    \label{fig:sample}
+\end{figure}
+
+\begin{equation} \label{eq:sample}         % equation, gather, align
+    E = m C^{2} 
+\end{equation}
+
+Where:
+\begin{itemize}
+    \item[$m$] is the mass of the object in kg.
+    \item[$C$] is the speed of light. Value of 3\E{9} m/s.
+\end{itemize}
+
+You can align equations on the equal sign, as:
+\begin{align*} \label{eq:aligned}         % equation, gather, align
+    A       &=   33213021.0
+    \\
+    B       &=   20    
+    \\
+    C       &=  \exp{\frac{1}{2}}
+    \\
+    D       &=  \ln{\frac{1}{2}}
+    \\
+    E       &=  \log{\frac{1}{2}}
+\end{align*}
+
+The \texttt{*} means that it goes unnumbered.
+
+Make sure to use \textbf{custom commands} to simplify repetitive typing of math terms, such as dimensionless parameters:
+
+$$
+    A = \frac{1}{2} \Gr \Pr^2
+$$
+
+
+
+
+
+% COMMENTS! Make a line for easier reading
+%------------------------------------------------------------------------------
+\section{A new section} \label{sec:a_new_section}
+
+
+This is a list with no spacing between the items and reduced width of line compared to the main body of the report. This can be changed in the \texttt{preamble.tex} file
+\begin{itemize}
+\item rud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolo
+\item One
+\item Two
+\end{itemize}
+
+%------------------------------------------------------------------------------
+\subsection{With subsections} \label{sub:with_subsections}
+
+Chemical compounds written with the \texttt{ce} package, as: CH3OH2 turns into \ce{CH3OH2}
+
+\begin{table}[H]    % H  means 'FORCE HERE' other options: h, t, p. 
+    \centering
+    %\resizebox{\linewidth}{!}{                % Uncomment if table is too wide
+    \caption{Table caption}
+    \label{tab:sample_table} \vspace{-0.5em}
+    \begin{tabular}{lccr}
+        \hline
+        a    & b        & c    & d      \\ \hline
+        1    & 2000     & 3    &  4     \\
+        1    & 2000     & 3    &  4     \\
+        1    & 2000     & 3    &  4     \\
+        1    & 2000     & 3    &  4     \\
+        \hline
+    \end{tabular}
+    %}                                         % Uncomment if table is too wide
+\end{table}
+
+
+%------------------------------------------------------------------------------
+\paragraph{A parapgh label} \label{par:a_parapgh_label}
+
+This is unnumbered, so it's good for simple separations. Reference as Sec.~\ref{sec:a_new_section}. The \texttt{\~} character means \textbf{unbroken space} which will force the words to always be held together across linebreaks
+
+
+\section{Custom To-do list}
+When writing and spotting corrections necessary for later, I like to make notes of them for me to correct them later.
+
+\todos{Fix the alignment of whatever.}
+
+These get listed into the final page of the draft report for easier readability.
+\textbf{don't forget to comment out} the \texttt{listoftodos} command

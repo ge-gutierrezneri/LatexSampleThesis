@@ -1,0 +1,124 @@
+% !TEX root = main.tex
+% \usepackage{scrhack}    							  	% Fix 'scrreprt' documentclass
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{titling}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{mathtools}
+% \usepackage{amsfonts}
+\usepackage{amsthm}
+% \usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{sidecap}
+\usepackage{float}
+\usepackage[none]{hyphenat}
+\usepackage[nottoc]{tocbibind}
+\usepackage{tablefootnote} 								% Put table foot notes (they don't normally appear)
+\usepackage{bm}											% Bold math symbols
+\usepackage{eurosym}									% Euro symbol
+\usepackage{textcomp}									% Degree symbol
+\usepackage[font=footnotesize,labelfont=bf]{caption}	% Change caption's font
+\usepackage{multicol}									% Use Multiple Comlumns
+\usepackage{multirow}									% Use multiple rows
+\usepackage[toc,page]{appendix}							% Make Appendix
+\usepackage{pdfpages}									% Attach PDF pages
+\usepackage{listings}									% Add source code to LaTeX
+\usepackage{tabulary}									% Substitute tabular. Autofits content
+	% use with: \begin{tabulary}{1.0\textwidth}{L|C|R}
+\usepackage[version=4]{mhchem}                    		% Easily write chemical formulas
+\usepackage{arydshln}                                 	% Make dashed lines in tabular, matrix
+	% use with: \hdashline \vdashline
+
+
+%% HEADER AND FOOTER
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\textit{\rightmark}}                     % LE: Left even pages
+\fancyhead[RO]{\textit{\leftmark}}                      % RO: Right odd pages
+\fancyfoot[LE,RO]{\thepage}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+
+%% SETTING THE NUMBERING SCHEMES OF SECTIONS AND TABLE OF CONTENTS
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{3}
+
+
+%% MAKING PARAGRAPHS A SUBSUBSUBSECTION
+\usepackage{titlesec}
+\titleformat{\paragraph}
+{\normalfont\itshape\bfseries}{\theparagraph}{2em}{}
+\titlespacing*{\paragraph}
+{1em}{1.2em}{0em}
+
+
+%% DEFINE CUSTOM COLORS TO BE USED
+\definecolor{blue}{HTML}{2160C9}
+\definecolor{grey}{HTML}{bebebe}
+% \definecolor{darkgrey}{rgb}{0.92,0.92,0.92}
+
+
+%% LINKS INSIDE THE DOCUMENT
+\usepackage[T1]{fontenc}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+
+%% CUSTOM TODO's
+	\newcommand\todos[1]{
+		\parbox{\linewidth}{
+		\vspace{0.5em}\hspace{1em}
+		\todo[backgroundcolor=blue!25,bordercolor=white,inline]{\small{#1}}}
+	}
+
+
+%% MAKE A NOMENCLATURE
+\immediate\write18{makeindex -s nomencl.ist -o "\jobname.nls" "\jobname.nlo"}
+\usepackage[intoc]{nomencl}
+\makenomenclature
+\usepackage{etoolbox}
+\renewcommand\nomgroup[1]{%
+ 	\item[\bfseries
+ 	\ifstrequal{#1}{A}{Abbreviations}{%
+ 	\ifstrequal{#1}{B}{Symbol list}{%
+ 	\ifstrequal{#1}{C}{Greek symbols}{
+  \ifstrequal{#1}{D}{Subscripts}{
+ 	\ifstrequal{#1}{E}{Superscripts}{}}}}}%
+]}
+\sloppy
+% This will add the units
+\newcommand{\nomunit}[1]{%
+\renewcommand{\nomentryend}{\hspace*{\fill}[#1]}}
+
+
+
+%% CITATION FROM THE BIBLIOGRAPHY
+\usepackage[square, numbers, sort&compress, nonamebreak]{natbib}
+% \bibliographystyle{abbrvnat}
+% \bibliographystyle{unsrtnat}
+
+
+%% ITEMIZE AND ENUMARATE - SEPARATION AND STYLE
+\usepackage{enumitem}
+\setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+\setenumerate{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+% Label for item
+\renewcommand\labelitemi{\textcolor{blue}{$\diamond$}}
+% Margins for itemize and enumerate
+\setlist[itemize,1]{leftmargin=5em, rightmargin=5em}
+\setlist[enumerate,1]{leftmargin=5em, rightmargin=5em}
+
+
+%% PARAGRAPH INDENDATION
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.5em}
+
+
+%% CAPTIONS ON FIGURES TABLES EQUOATIONS
+\captionsetup[figure]{labelfont={bf},labelformat={default},labelsep=period,name={Fig.}}
+\captionsetup[table]{labelfont={bf},labelformat={default},labelsep=period,name={Tab.}}

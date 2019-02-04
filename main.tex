@@ -1,0 +1,72 @@
+\documentclass[11pt]{book}
+% \usepackage{palatino}  % palatino, charter, fourier, utopia, times, lmodern
+\usepackage[charter]{mathdesign}                            % Font package
+% \usepackage[a4paper, margin=1in]{geometry}                % Page margins
+\usepackage[a4paper, total={162mm,250mm}, left=30mm, top=25mm]{geometry}        % Page margins
+\input{preamble.tex}                                        % Imported packages
+\input{commands.tex}                                        % Custom commands
+
+%% META DATA
+\author{Your name}
+\title{Your title}
+\date{\today}
+
+%% CONTENT ////////////////////////////////////////////////////////////////////
+\begin{document}
+%% PREFACE --------------------------------------------------------------------
+\pagenumbering{gobble}
+\input{title_page.tex}
+\blankpage
+
+\pagenumbering{roman}
+
+\vfill \pagebreak
+\input{chapters/abstract.tex}
+
+
+\vfill \pagebreak 
+\input{chapters/acknowledgement.tex}
+
+\vfill \pagebreak
+\tableofcontents
+
+% \listoffigures
+% \listoftables
+\input{nomenclature.tex}
+\blankpage
+
+
+%% CHAPTERS     -------------------------------------------------------------------
+\pagenumbering{arabic}
+
+% \begin{multicols}{2}
+
+\chapter{Introduction}
+\input{chapters/introduction.tex}
+
+% Put more chapters here...
+% ...
+% ...
+
+% \end{multicols}
+
+
+
+%% ENDING ---------------------------------------------------------------------
+
+\vfill \pagebreak
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+
+\vfill \pagebreak
+\input{chapters/appendix.tex}
+
+% \vfill \pagebreak
+% \printindex
+
+\vfill \pagebreak
+\listoftodos[Corrections pending]
+
+\end{document}
+%------------------------------------------------------------------------------
